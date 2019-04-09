@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        JUnitCore.runClasses(TestSuite_1.class);
+        JUnitCore.runClasses(TestPrimer.class);
 
     }
 }
