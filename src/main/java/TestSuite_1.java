@@ -1,8 +1,11 @@
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 public class TestSuite_1 {
+
+    @BeforeClass
+    public static void beforeClass(){
+        System.out.println("This is before class method");
+    }
 
     @Before
     public void before(){
@@ -22,6 +25,11 @@ public class TestSuite_1 {
     @After
     public void after(){
         System.out.println("This is after method");
+    }
+
+    @AfterClass
+    public static void afterClass(){
+        System.out.println("This is after class method");
     }
 
 }
