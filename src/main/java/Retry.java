@@ -12,7 +12,7 @@ public class Retry implements TestRule {
 
     @Override
     public Statement apply(Statement base, Description description) {
-        return null;
+        return statement(base,description);
     }
 
     private Statement statement(final Statement base, final Description description){
@@ -20,7 +20,7 @@ public class Retry implements TestRule {
             @Override
             public void evaluate() throws Throwable {
                 Throwable throwable = null;
-                for (int i = 0; 1< retryCount; i++){
+                for (int i = 0; i< retryCount; i++){
                     try {
                         base.evaluate();
                         return;
