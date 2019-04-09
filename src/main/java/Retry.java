@@ -1,2 +1,40 @@
-public class Retry {
+import org.junit.rules.TestRule;
+import org.junit.runner.Description;
+import org.junit.runners.model.Statement;
+
+public class Retry implements TestRule {
+
+    private int retryCount;
+
+    public Retry(int retryCount){
+        this.retryCount = retryCount;
+    }
+
+    @Override
+    public Statement apply(Statement base, Description description) {
+        return null;
+    }
+
+    private Statement statement(final Statement base, final Description description){
+        return new Statement() {
+            @Override
+            public void evaluate() throws Throwable {
+                Throwable throwable = null;
+                for (int i = 0; 1< retryCount; i++){
+                    try {
+                        base.evaluate();
+                        return;
+                    }catch (Throwable e){
+                        throwable = e;
+                        System.out.println("Run "+(i+1)+ " failed");
+
+
+                    }
+                }
+                System.out.println("Giving up after "+retryCount+" failures");
+                throw throwable;
+            }
+        };
+    }
+
 }
