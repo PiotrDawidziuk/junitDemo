@@ -1,9 +1,9 @@
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.*;
 
 public class TestRules {
+
+    @Rule
+    public Retry retry = new Retry(3);
 
     @BeforeClass
     public static void beforeClass(){

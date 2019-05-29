@@ -1,9 +1,7 @@
 import org.junit.*;
 
-public class TestSuite_1 {
+public class TestSuite_1 extends TestRules {
 
-    @Rule
-    public Retry retry = new Retry(3);
 
     @Test
     public void test1(){

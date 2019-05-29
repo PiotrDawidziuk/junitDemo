@@ -1,6 +1,6 @@
 import org.junit.*;
 
-public class TestSuite_2 {
+public class TestSuite_2 extends TestRules{
 
     @Test
     public void test1(){
